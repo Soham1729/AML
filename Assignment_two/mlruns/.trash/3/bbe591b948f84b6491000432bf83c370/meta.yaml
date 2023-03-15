@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/Soham/Documents/CMI-SEM-4/AML/Assignment_two/mlruns/3/bbe591b948f84b6491000432bf83c370/artifacts
+end_time: 1678734038661
+entry_point_name: ''
+experiment_id: '3'
+lifecycle_stage: active
+name: ''
+run_id: bbe591b948f84b6491000432bf83c370
+run_uuid: bbe591b948f84b6491000432bf83c370
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1678734037992
+status: 3
+tags: []
+user_id: akarsh

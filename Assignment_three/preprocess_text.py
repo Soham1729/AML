@@ -1,5 +1,3 @@
-import pickle as pkl
-from preprocess_text import *
 from nltk.corpus import stopwords
 import string
 from nltk.stem.porter import PorterStemmer
@@ -20,9 +18,4 @@ def preprocess_text(text):
     for i in meaningful_instances:
         final_text.append(ps.stem(i))
         
-    return " ".join(final_text) 
-
-bag_of_words = pkl.load(open('bow.sav', "rb"))
-tfidf_transfomr = pkl.load(open('tfidf.sav', "rb"))
-
-preprocess_text('I love @ \syi')
+    return " ".join(final_text)   

@@ -12,10 +12,8 @@ from sklearn.metrics import accuracy_score,confusion_matrix,precision_score,reca
 import nltk
 from nltk.corpus import stopwords
 import string
-from nltk.stem.porter import PorterStemmer
 
 
-ps= PorterStemmer()
 
 def preprocess_text(text):   # import raw txt data 
     text = text.lower()
@@ -30,7 +28,7 @@ def preprocess_text(text):   # import raw txt data
     final_text = []
     
     for i in meaningful_instances:
-        final_text.append(ps.stem(i))
+        final_text.append(i)
         
     return " ".join(final_text)    
 

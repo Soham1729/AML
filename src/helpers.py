@@ -7,8 +7,9 @@ from collections import Counter
 from sklearn.model_selection import train_test_split
 from sklearn.svm import SVC
 from sklearn.linear_model import LogisticRegression
+from sklearn.tree import DecisionTreeClassifier
 from sklearn.feature_extraction.text import TfidfTransformer, CountVectorizer
-from sklearn.metrics import accuracy_score,confusion_matrix,precision_score,recall_score, f1_score
+from sklearn.metrics import accuracy_score,confusion_matrix,precision_score,recall_score, f1_score, classification_report, precision_recall_curve, auc
 import nltk
 from nltk.corpus import stopwords
 import string

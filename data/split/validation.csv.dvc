@@ -1,4 +1,9 @@
 outs:
+<<<<<<< HEAD
 - md5: 78732334e3c12b16cabbbcdfb428b3be
   size: 116832
+=======
+- md5: 70595a8467658720d4108a5ff147505d
+  size: 107887
+>>>>>>> temp-branch
   path: validation.csv

@@ -2,8 +2,8 @@ from helpers import *
 
 bow_path = "/Users/Soham/Documents/CMI-SEM-4/AML/src/models/bow.sav"
 tfidf_path = "/Users/Soham/Documents/CMI-SEM-4/AML/src/models/tfidf.sav"
-bow = pkl.load(open(os.path.join(bow_path), "rb"))
-tfidf = pkl.load(open(os.path.join(tfidf_path), "rb"))
+bow = pkl.load(open(bow_path, "rb"))
+tfidf = pkl.load(open(tfidf_path, "rb"))
 
 def score(text: str, model, threshold: float):
     

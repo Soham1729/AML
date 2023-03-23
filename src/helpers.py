@@ -16,7 +16,6 @@ from nltk.corpus import stopwords
 import string
 import mlflow
 import mlflow.sklearn
-import urlparse
 import os, sys
 
 

@@ -1,7 +1,8 @@
 
 #importing score function
 from score import *
-
+from helpers import *
+import requests,json
 
 #importing model
 lr_model_path = "/Users/Soham/Documents/CMI-SEM-4/AML/src/models/lr_model.sav"
@@ -65,3 +66,40 @@ def test_obvious_spam(text=obvious_spam, threshold=threshold, model=lr_model) ->
     label, prop = score(text, model, threshold)
 
     assert label == True, "Prob: {}".format(prop)
+    
+def test_flask():
+    # Launch the Flask app using os.system
+    os.system('python src/app.py &')
+
+    # Wait for the app to start up
+    time.sleep(1)
+
+    # Make a get request to the endpoint
+    response = requests.get('http://127.0.0.1:5000/')
+    print(response.status_code)
+
+    # Assert that the response is what we expect
+    assert response.status_code == 200
+
+    assert type(response.text) == str
+
+    # Make a post request to the endpoint score
+    json_response = requests.post('http://127.0.0.1:5000/score', {"sent": obvious_ham})
+
+    # Assert that the response is what we expect
+    assert json_response.status_code == 200
+
+    assert type(json_response.text) == str
+
+    # Assert it is a json as we intended
+    load_j = json.loads(json_response.text)
+
+    assert type(load_j["Sentence"]) == str
+
+    assert load_j["Prediction"] == "Spam" or load_j["Prediction"] == "Not Spam"
+
+    prop1 = float(load_j["Propensity"])
+    assert prop1 >= 0 and prop1 <= 1
+
+    # Shut down the Flask app using os.system
+    os.system('kill $(lsof -t -i:5000)')
